@@ -3,7 +3,7 @@ if [ -d ~/.nodenv ]; then
   echo '########## nodenv already installed, skipping.'
 else
   echo "########## Installing node ..."
-  sudo apt-get install -y --force-yes libssl-dev libreadline-dev zlib1g-dev git
+  sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev git
   git clone https://github.com/nodenv/nodenv.git ~/.nodenv
   cd ~/.nodenv && src/configure && make -C src
   mkdir -p ~/.nodenv/plugins/

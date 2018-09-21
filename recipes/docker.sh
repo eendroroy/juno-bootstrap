@@ -17,10 +17,10 @@ else
   pushd /var/lib/
   sudo ln -s /home/docker_data_dir docker
   popd
-  sudo apt-get install apt-transport-https ca-certificates -y --force-yes
-  sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual -y --force-yes
-  sudo apt-get purge lxc-docker -y --force-yes
-  sudo apt-get install docker-ce -y --force-yes
+  sudo apt-get install apt-transport-https ca-certificates -y
+  sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual -y
+  sudo apt-get purge lxc-docker -y
+  sudo apt-get install docker-ce -y
   sudo groupadd docker
   sudo gpasswd -a ${USER} docker
   sudo service docker restart

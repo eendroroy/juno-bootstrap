@@ -6,8 +6,8 @@ sudo dpkg --add-architecture i386
 
 # init update
 sudo apt-get update -y
-sudo apt-get upgrade -y --force-yes
-sudo apt-get dist-upgrade -y --force-yes
-sudo apt-get autoremove -y --force-yes
-sudo apt-get autoclean -y --force-yes
-sudo apt-get install -f -y --force-yes
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+sudo apt-get install -f -y

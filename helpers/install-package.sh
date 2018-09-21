@@ -2,5 +2,5 @@
 function install-package {
   echo "########## installing package:"
   echo "########## $1 ...."
-  sudo apt-get install -y --force-yes $1
+  sudo apt-get install -y $1
 }

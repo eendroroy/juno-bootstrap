@@ -13,5 +13,5 @@ else
 fi
 
 echo "########## Installing virtualbox-5.2"
-sudo apt-get install virtualbox-5.2 -y --force-yes
+sudo apt-get install virtualbox-5.2 -y
 
