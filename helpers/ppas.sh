@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 declare -a ppas=(\
-  "snwh/pulp" \
+  "snwh/ppa" \
   "noobslab/apps" \
   "nomacs/daily" \
   "synapse-core/testing" \

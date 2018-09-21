@@ -15,7 +15,7 @@ else
 fi
 
 sudo apt-get update -y
-sudo apt-get install -y --force-yes \
+sudo apt-get install -y \
   google-chrome-stable \
   google-talkplugin
 sudo apt-get autoremove -y
