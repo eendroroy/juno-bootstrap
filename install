@@ -31,8 +31,6 @@ fi
 RECIPES_PATH="${SCRIPT_ROOT}/recipes"
 source "${RECIPES_PATH}/virtualbox-5.sh"
 source "${RECIPES_PATH}/vagrant.sh"
-source "${RECIPES_PATH}/docker.sh"
-source "${RECIPES_PATH}/docker-compose.sh"
 source "${RECIPES_PATH}/pyenv.sh"
 source "${RECIPES_PATH}/rbenv.sh"
 source "${RECIPES_PATH}/exenv.sh"
@@ -41,8 +39,6 @@ source "${RECIPES_PATH}/nodenv.sh"
 source "${RECIPES_PATH}/crenv.sh"
 source "${RECIPES_PATH}/zsh.sh"
 source "${RECIPES_PATH}/neovim.sh"
-source "${RECIPES_PATH}/add-getdeb-repo.sh"
-source "${RECIPES_PATH}/google-apps.sh"
 
 # update, upgrade, clean
 update
