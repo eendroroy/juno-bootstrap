@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+SCRIPT_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+INIT_PATH="${SCRIPT_ROOT}/init"
+for file in `\ls "${INIT_PATH}"`; do
+  source "${INIT_PATH}/${file}"
+done
+
+HELPER_PATH="${SCRIPT_ROOT}/helpers"
+for file in `\ls "${HELPER_PATH}"`; do
+  source "${HELPER_PATH}/${file}"
+done
+
+# install packages available in default archive
+for i in "${packagesDefault[@]}"; do install-package $i; done
+
+# install packages from 3rd party archives
+for i in "${ppas[@]}"; do add-repo $i; done
+update
+for i in "${packages[@]}"; do install-package $i; done
+
+# install packages from 3rd party juno archives
+if [[ `lsb_release -cs` = "juno" ]]; then
+  for i in "${juno_ppas[@]}"; do add-repo $i; done
+  update
+  for i in "${juno_packages[@]}"; do install-package $i; done
+fi
+
+# execute custom installation scripts
+RECIPES_PATH="${SCRIPT_ROOT}/recipes"
+source "${RECIPES_PATH}/virtualbox-5.sh"
+source "${RECIPES_PATH}/vagrant.sh"
+source "${RECIPES_PATH}/docker.sh"
+source "${RECIPES_PATH}/docker-compose.sh"
+source "${RECIPES_PATH}/pyenv.sh"
+source "${RECIPES_PATH}/rbenv.sh"
+source "${RECIPES_PATH}/exenv.sh"
+source "${RECIPES_PATH}/goenv.sh"
+source "${RECIPES_PATH}/nodenv.sh"
+source "${RECIPES_PATH}/crenv.sh"
+source "${RECIPES_PATH}/zsh.sh"
+source "${RECIPES_PATH}/neovim.sh"
+source "${RECIPES_PATH}/add-getdeb-repo.sh"
+source "${RECIPES_PATH}/google-apps.sh"
+
+# update, upgrade, clean
+update
+upgrade
+clean
+
+echo 
+echo "###############################################"
+echo "# to install nvidia drivers execute:          #"
+echo "# $ bash customs/nvidia.sh                    #"
+echo "###############################################"
+echo
